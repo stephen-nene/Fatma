@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Steve's 2025 Goals</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom styles for hover and transitions */
+    .goal-card:hover {
+      transform: translateY(-5px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <header class="bg-blue-600 text-white py-5 shadow-md">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-3xl md:text-5xl font-bold">Steve's 2025 Goals</h1>
+      <p class="text-lg md:text-xl mt-2">Aligning growth, overcoming challenges, and achieving milestones</p>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-10">
+    <!-- SWOT Analysis Section -->
+    <section class="mb-12">
+      <h2 class="text-2xl md:text-4xl font-semibold text-center mb-8">SWOT Analysis</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Strengths -->
+        <div class="p-6 bg-green-100 rounded-lg text-center goal-card">
+          <h3 class="text-xl font-bold text-green-700 mb-4">Strengths</h3>
+          <ul class="list-disc text-left pl-5">
+            <li>Expertise in web development and software solutions</li>
+            <li>Passion for seamless applications solving real-world problems</li>
+            <li>Adaptability to remote work and team collaboration</li>
+            <li>Proficiency in full-stack tools like React, Flask, and Rust</li>
+          </ul>
+        </div>
+        <!-- Weaknesses -->
+        <div class="p-6 bg-red-100 rounded-lg text-center goal-card">
+          <h3 class="text-xl font-bold text-red-700 mb-4">Weaknesses</h3>
+          <ul class="list-disc text-left pl-5">
+            <li>Limited experience with advanced AI implementations</li>
+            <li>Occasional challenges balancing multiple priorities</li>
+            <li>Learning curve with new tools like Django and MongoDB</li>
+          </ul>
+        </div>
+        <!-- Opportunities -->
+        <div class="p-6 bg-blue-100 rounded-lg text-center goal-card">
+          <h3 class="text-xl font-bold text-blue-700 mb-4">Opportunities</h3>
+          <ul class="list-disc text-left pl-5">
+            <li>Expanding AI knowledge for projects like exam grading</li>
+            <li>Further studies in the UK to earn a computer science degree</li>
+            <li>Exploring impactful solutions in fintech and social AI</li>
+            <li>Contributing to impactful open-source projects</li>
+          </ul>
+        </div>
+        <!-- Threats -->
+        <div class="p-6 bg-yellow-100 rounded-lg text-center goal-card">
+          <h3 class="text-xl font-bold text-yellow-700 mb-4">Threats</h3>
+          <ul class="list-disc text-left pl-5">
+            <li>Fast-paced industry with constantly evolving technologies</li>
+            <li>Competition in global remote work markets</li>
+            <li>Economic challenges affecting career growth</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section>
+      <h2 class="text-2xl md:text-4xl font-semibold text-center mb-8">2025 Goals</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Goal Card -->
+        <div class="p-6 bg-white rounded-lg shadow-lg goal-card">
+          <h3 class="text-xl font-bold text-blue-600 mb-4">1. Advance AI Expertise</h3>
+          <p class="text-gray-700">Develop AI systems for grading KCSE exams and improve efficiency in secondary school education.</p>
+        </div>
+        <div class="p-6 bg-white rounded-lg shadow-lg goal-card">
+          <h3 class="text-xl font-bold text-blue-600 mb-4">2. Build an Expense Tracker App</h3>
+          <p class="text-gray-700">Launch an app with salary tracking, expense management, and data visualization for better financial planning.</p>
+        </div>
+        <div class="p-6 bg-white rounded-lg shadow-lg goal-card">
+          <h3 class="text-xl font-bold text-blue-600 mb-4">3. Further Education</h3>
+          <p class="text-gray-700">Pursue a computer science degree in the UK to enhance theoretical and practical skills.</p>
+        </div>
+        <div class="p-6 bg-white rounded-lg shadow-lg goal-card">
+          <h3 class="text-xl font-bold text-blue-600 mb-4">4. Strengthen Cybersecurity Skills</h3>
+          <p class="text-gray-700">Deepen expertise in protecting systems and data, focusing on practical solutions for businesses.</p>
+        </div>
+        <div class="p-6 bg-white rounded-lg shadow-lg goal-card">
+          <h3 class="text-xl font-bold text-blue-600 mb-4">5. Launch an Open-Source Project</h3>
+          <p class="text-gray-700">Create and maintain a project to solve real-world problems, contributing to the developer community.</p>
+        </div>
+        <div class="p-6 bg-white rounded-lg shadow-lg goal-card">
+          <h3 class="text-xl font-bold text-blue-600 mb-4">6. Contribute to Fintech</h3>
+          <p class="text-gray-700">Explore opportunities in fintech, focusing on financial inclusion and innovative solutions for underserved communities.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 Steve. Designed with <span class="text-red-500">&hearts;</span> and Tailwind CSS.</p>
+    </div>
+  </footer>
+</body>
+</html>

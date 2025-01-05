@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 Resolutions - Steve Nene</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-gray-900 via-purple-900 to-gray-900 text-white">
+    <!-- Hero Section -->
+    <header class="container mx-auto px-4 py-16 text-center">
+        <div class="space-y-6">
+            <div class="flex justify-center">
+                <div class="w-32 h-32 rounded-full bg-purple-500 flex items-center justify-center">
+                    <i data-feather="terminal" class="w-16 h-16"></i>
+                </div>
+            </div>
+            <h1 class="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
+                Steve Nene
+            </h1>
+            <p class="text-xl text-gray-300">
+                Kenyan Tech Enthusiast | Software Developer | Growing Extrovert
+            </p>
+            <div class="flex justify-center space-x-4">
+                <i data-feather="sparkles" class="w-6 h-6 text-yellow-400"></i>
+                <span class="text-yellow-400">2025 Vision & Goals</span>
+                <i data-feather="sparkles" class="w-6 h-6 text-yellow-400"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- Vision Statement -->
+        <div class="max-w-3xl mx-auto mb-16 text-center">
+            <p class="text-xl text-gray-300 italic">
+                "From writing code in quiet corners to building connections across Kenya's tech landscape. 
+                2025 is my year of growth, impact, and stepping out of my comfort zone."
+            </p>
+        </div>
+
+        <!-- Overall Progress -->
+        <div class="max-w-3xl mx-auto mb-16">
+            <div class="bg-gray-800/50 rounded-xl p-6">
+                <h2 class="text-2xl font-bold mb-4 text-center">Overall Progress</h2>
+                <div class="w-full bg-gray-700 rounded-full h-2">
+                    <div id="overall-progress" 
+                         class="bg-gradient-to-r from-purple-400 to-pink-400 h-2 rounded-full transition-all duration-500"
+                         style="width: 0%">
+                    </div>
+                </div>
+                <div class="mt-4 text-center text-gray-300">
+                    <span id="progress-percentage">0</span>% of goals completed
+                </div>
+            </div>
+        </div>
+
+        <!-- Resolutions Grid -->
+        <div id="goals-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <!-- Cards will be inserted here by JavaScript -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="container mx-auto px-4 py-8 text-center text-gray-400">
+        <p>Built with 💜 by Steve Nene in Kenya</p>
+        <p class="text-sm mt-2">Powered by determination and Kenyan coffee ☕</p>
+    </footer>
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Goals Data
+        const goalsData = {
+            technical: {
+                title: 'Technical Mastery',
+                icon: 'code',
+                color: 'text-purple-400',
+                goals: [
+                    'Master Cloud Architecture (AWS & Azure)',
+                    'Contribute to 5 major open-source projects',
+                    'Build 2 impactful solutions for local businesses'
+                ],
+                supporters: 24
+            },
+            personal: {
+                title: 'Personal Growth',
+                icon: 'heart',
+                color: 'text-red-400',
+                goals: [
+                    'Embrace social situations with confidence',
+                    'Join local tech meetups monthly',
+                    'Start a tech podcast about Kenyan innovation'
+                ],
+                supporters: 18
+            },
+            community: {
+                title: 'Community Impact',
+                icon: 'users',
+                color: 'text-blue-400',
+                goals: [
+                    'Mentor 5 junior developers',
+                    'Speak at 3 tech conferences',
+                    'Build a developer community in Nairobi'
+                ],
+                supporters: 32
+            },
+            learning: {
+                title: 'Continuous Learning',
+                icon: 'book',
+                color: 'text-green-400',
+                goals: [
+                    'Complete 2 AI/ML certifications',
+                    'Read 24 technical books',
+                    'Learn Swahili programming terms'
+                ],
+                supporters: 28
+            },
+            workLife: {
+                title: 'Work-Life Harmony',
+                icon: 'coffee',
+                color: 'text-yellow-400',
+                goals: [
+                    'Daily meditation practice',
+                    'Weekly coding-free days',
+                    'Monthly tech detox weekends'
+                ],
+                supporters: 15
+            },
+            innovation: {
+                title: 'Innovation Projects',
+                icon: 'brain',
+                color: 'text-pink-400',
+                goals: [
+                    'Launch a tech solution for local farmers',
+                    'Create an African programming language',
+                    'Develop a Kenyan tech resource hub'
+                ],
+                supporters: 42
+            }
+        };
+
+        // State Management
+        const state = {
+            goals: Object.keys(goalsData).reduce((acc, key) => {
+                acc[key] = Array(3).fill(false);
+                return acc;
+            }, {})
+        };
+
+        // Create Goal Card
+        function createGoalCard(category, data) {
+            const completedCount = state.goals[category].filter(Boolean).length;
+            const progressPercentage = (completedCount / 3) * 100;
+
+            const card = document.createElement('div');
+            card.className = 'bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 hover:transform hover:scale-105 transition-all duration-300';
+            
+            card.innerHTML = `
+                <div class="flex justify-between items-start mb-4">
+                    <i data-feather="${data.icon}" class="w-10 h-10 ${data.color} mb-4"></i>
+                    <div class="text-sm text-gray-400">
+                        ${completedCount}/3 Complete
+                    </div>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">${data.title}</h3>
+                <div class="w-full bg-gray-700 rounded-full h-2">
+                    <div class="bg-gradient-to-r from-purple-400 to-pink-400 h-2 rounded-full transition-all duration-500"
+                         style="width: ${progressPercentage}%">
+                    </div>
+                </div>
+                <ul class="space-y-4 mt-4">
+                    ${data.goals.map((goal, index) => `
+                        <li class="flex items-start space-x-2 text-gray-300 cursor-pointer goal-item" 
+                            data-category="${category}" 
+                            data-index="${index}">
+                            <i data-feather="${state.goals[category][index] ? 'check-circle' : 'circle'}" 
+                               class="w-5 h-5 ${state.goals[category][index] ? 'text-green-400' : 'text-gray-400'} flex-shrink-0 mt-1">
+                            </i>
+                            <span class="${state.goals[category][index] ? 'line-through text-gray-500' : ''}">${goal}</span>
+                        </li>
+                    `).join('')}
+                </ul>
+                <div class="mt-4 pt-4 border-t border-gray-700">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center space-x-2">
+                            <i data-feather="users" class="w-4 h-4 text-gray-400"></i>
+                            <span class="text-sm text-gray-400">${data.supporters} supporters</span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="p-2 hover:bg-gray-700 rounded-full transition-colors">
+                                <i data-feather="message-circle" class="w-4 h-4 text-gray-400"></i>
+                            </button>
+                            <button class="p-2 hover:bg-gray-700 rounded-full transition-colors">
+                                <i data-feather="share-2" class="w-4 h-4 text-gray-400"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // Update Overall Progress
+        function updateOverallProgress() {
+            const totalGoals = Object.values(state.goals).flat().length;
+            const completedGoals = Object.values(state.goals).flat().filter(Boolean).length;
+            const progress = Math.round((completedGoals / totalGoals) * 100);
+            
+            document.getElementById('overall-progress').style.width = `${progress}%`;
+            document.getElementById('progress-percentage').textContent = progress;
+        }
+
+        // Toggle Goal
+        function toggleGoal(category, index) {
+            state.goals[category][index] = !state.goals[category][index];
+            renderGoals();
+            updateOverallProgress();
+        }
+
+        // Render Goals
+        function renderGoals() {
+            const container = document.getElementById('goals-grid');
+            container.innerHTML = '';
+            
+            Object.entries(goalsData).forEach(([category, data]) => {
+                container.appendChild(createGoalCard(category, data));
+            });
+            
+            feather.replace();
+            
+            // Add click listeners
+            document.querySelectorAll('.goal-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const category = item.dataset.category;
+                    const index = parseInt(item.dataset.index);
+                    toggleGoal(category, index);
+                });
+            });
+        }
+
+        // Initialize
+        renderGoals();
+        updateOverallProgress();
+    </script>
+</body>
+</html>

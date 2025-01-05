@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Steve's 2025 Goals</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .dark-mode {
+      background-color: #1a202c;
+      color: #a0aec0;
+    }
+    .goal-card:hover {
+      transform: translateY(-5px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body class="bg text-gray-800 font-sans">
+  <header class="bg-blue-600 text-white py-5 shadow-md">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-3xl md:text-5xl font-bold">Steve's 2025 Goals</h1>
+      <button id="darkModeToggle" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded">Toggle Dark Mode</button>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-10">
+    <section>
+      <h2 class="text-2xl md:text-4xl font-semibold text-center mb-8">My 2025 Goals</h2>
+      <div id="goalsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Goals will be rendered here dynamically -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 Steve. Designed with <span class="text-red-500">&hearts;</span> and Tailwind CSS.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Dark mode toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+    darkModeToggle.addEventListener('click', () => {
+        console.log('Dark Mode Toggle')
+      body.classList.toggle('dark-mode');
+    });
+
+    // Goals array
+    const goals = [
+      { emoji: '🌍', text: 'Travel to a new country' },
+      { emoji: '📚', text: 'Read 12 books' },
+      { emoji: '🏋️', text: 'Maintain a regular fitness routine' },
+      { emoji: '💻', text: 'Complete 12 development projects' },
+      { emoji: '🧘', text: 'Practice mindfulness daily' },
+      { emoji: '👨‍💻', text: 'Improve coding skills in new frameworks' },
+      { emoji: '🎨', text: 'Start a creative hobby like painting or photography' },
+      { emoji: '🏡', text: 'Redesign a personal workspace for productivity' },
+      { emoji: '🤝', text: 'Network with 50 professionals in the industry' }
+    ];
+
+    // Render goals dynamically
+    const goalsContainer = document.getElementById('goalsContainer');
+    goals.forEach(goal => {
+      const goalCard = document.createElement('div');
+      goalCard.className = 'p-6 bg-white rounded-lg shadow-lg goal-card text-center';
+      goalCard.innerHTML = `
+        <span class="text-4xl">${goal.emoji}</span>
+        <h3 class="text-xl font-bold text-blue-600 mt-4">${goal.text}</h3>
+      `;
+      goalsContainer.appendChild(goalCard);
+    });
+  </script>
+</body>
+</html>

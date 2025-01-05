@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My 2025 Goals</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+    <style>
+        :root {
+            --primary: #3B82F6;
+            --bg-light: #ffffff;
+            --text-light: #1F2937;
+            --bg-dark: #1F2937;
+            --text-dark: #F3F4F6;
+        }
+        
+        .dark {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+        
+        .goal-card {
+            transition: transform 0.3s ease;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .goal-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .dark .goal-card {
+            background-color: #2D3748;
+        }
+
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: #E5E7EB;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        #theme-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body class="min-h-screen transition-colors duration-200">
+    <button id="theme-toggle" class="p-2 rounded-full">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold text-center mb-8">2025 Goals Journey 🎯</h1>
+        <div id="goals-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Goals will be inserted here by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const goals = [
+            {
+                icon: "✈️",
+                title: "Global Explorer",
+                description: "Visit a new country and immerse in its culture",
+                progress: 0
+            },
+            {
+                icon: "💻",
+                title: "Tech Portfolio",
+                description: "Complete 12 meaningful projects",
+                progress: 0
+            },
+            {
+                icon: "📚",
+                title: "Skill Development",
+                description: "Master 3 new technologies",
+                progress: 0
+            },
+            {
+                icon: "🤝",
+                title: "Community Impact",
+                description: "Contribute to 5 open source projects",
+                progress: 25
+            },
+            {
+                icon: "💪",
+                title: "Personal Growth",
+                description: "Establish healthy daily routine",
+                progress: 20
+            },
+            {
+                icon: "🎓",
+                title: "Knowledge Share",
+                description: "Create educational content",
+                progress: 10
+            }
+        ];
+
+        function createGoalCard(goal) {
+            return `
+                <div class="goal-card">
+                    <div class="text-4xl mb-4">${goal.icon}</div>
+                    <h3 class="text-xl font-bold mb-2">${goal.title}</h3>
+                    <p class="mb-4">${goal.description}</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${goal.progress}%"></div>
+                    </div>
+                    <p class="text-sm mt-2 text-right">${goal.progress}% complete</p>
+                </div>
+            `;
+        }
+
+        function renderGoals() {
+            const container = document.getElementById('goals-container');
+            container.innerHTML = goals.map(goal => createGoalCard(goal)).join('');
+        }
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        let isDark = false;
+
+        themeToggle.addEventListener('click', () => {
+            isDark = !isDark;
+            body.classList.toggle('dark');
+            themeToggle.innerHTML = isDark ? 
+                '<i class="fas fa-sun"></i>' : 
+                '<i class="fas fa-moon"></i>';
+        });
+
+        // Initial render
+        renderGoals();
+    </script>
+</body>
+</html>

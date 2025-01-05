@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2025 Resolution Journey</title>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    /* Styles here */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.5;
+      background: linear-gradient(to bottom, #f8f9fa, #fff);
+      color: #333;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1,
+    h2 {
+      text-align: center;
+    }
+    .hero {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(to right, #1e90ff, #6a5acd);
+      color: white;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    .icon {
+      font-size: 30px;
+      margin-bottom: 10px;
+      color: #1e90ff;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #333;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>2025 Resolution Journey</h1>
+    <p>
+      Transform your aspirations into achievements. Make 2025 your year of
+      growth, learning, and meaningful progress.
+    </p>
+    <button
+      style="
+        padding: 10px 20px;
+        background-color: #1e90ff;
+        border: none;
+        color: white;
+        border-radius: 5px;
+      "
+    >
+      Start Your Journey
+    </button>
+  </div>
+
+  <!-- Resolutions -->
+  <div class="container">
+    <h2>Resolutions</h2>
+    <div class="grid" id="resolutions-grid"></div>
+  </div>
+
+  <!-- Progress Section -->
+  <div class="container">
+    <h2>Track Your Progress</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="icon">🌟</div>
+        <h3>365 Days of Opportunity</h3>
+      </div>
+      <div class="card">
+        <div class="icon">🎯</div>
+        <h3>12 Monthly Milestones</h3>
+      </div>
+      <div class="card">
+        <div class="icon">∞</div>
+        <h3>Infinite Possibilities</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Resolution Journey. Make every day count.</p>
+  </footer>
+
+  <script>
+    // JavaScript-only replacement for React state
+    const resolutions = [
+      {
+        icon: "🎯",
+        title: "Set Clear Goals",
+        description:
+          "Transform aspirations into achievable milestones with structured planning and dedication.",
+      },
+      {
+        icon: "❤️",
+        title: "Prioritize Health",
+        description:
+          "Focus on mental and physical well-being through balanced nutrition and regular exercise.",
+      },
+      {
+        icon: "🧠",
+        title: "Learn & Grow",
+        description:
+          "Embrace continuous learning with new skills and knowledge acquisition every month.",
+      },
+      {
+        icon: "🏋️",
+        title: "Stay Active",
+        description:
+          "Maintain consistent physical activity with varied workouts and outdoor adventures.",
+      },
+      {
+        icon: "📖",
+        title: "Read More",
+        description:
+          "Expand horizons through literature, with a goal of 24 books throughout the year.",
+      },
+      {
+        icon: "✈️",
+        title: "Travel & Explore",
+        description:
+          "Visit new places and experience different cultures to broaden perspectives.",
+      },
+    ];
+
+    // Populate the resolutions grid
+    const resolutionsGrid = document.getElementById("resolutions-grid");
+    resolutions.forEach((res) => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <div class="icon">${res.icon}</div>
+        <h3>${res.title}</h3>
+        <p>${res.description}</p>
+      `;
+      resolutionsGrid.appendChild(card);
+    });
+  </script>
+</body>
+</html>
